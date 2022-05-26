@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>P1</title>
+
+    <style>
+        @media screen and (min-width: 800px) {
+            #container {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                align-content: center;
+                margin: 0 auto;
+                width: 500px;
+                height: 500px;
+                background-color: green;
+                border-style: solid;
+                border-width: 1px;
+                border-color: black;
+            }
+            .patrat {
+                flex-grow: 1;
+            }
+            .patrat:nth-child(even) {
+                border-style: solid;
+                border-width: 1px;
+                border-color: red;
+            }
+            .patrat:nth-child(odd) {
+                border-style: solid;
+                border-width: 1px;
+                border-color: blue;
+            }
+        }
+        
+        @media screen and (max-width: 800px) {
+            body {
+                animation: body-color-change 1s linear infinite alternate;
+            }
+            @keyframes body-color-change {
+                from {
+                    background-color: white;
+                }
+                to {
+                    background-color: yellow;
+                }
+            }
+            #container {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                align-content: center;
+                margin: 0 auto;
+                width: 50vw;
+                height: 500px;
+                background-color: green;
+                border-style: solid;
+                border-width: 1px;
+                border-color: black;
+            }
+            .patrat {
+                flex-grow: 1;
+            }
+            .patrat:nth-child(even) {
+                border-style: solid;
+                border-width: 1px;
+                border-color: red;
+            }
+            .patrat:nth-child(odd) {
+                border-style: solid;
+                border-width: 1px;
+                border-color: blue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="patrat"></div>
+        <div class="patrat"></div>
+        <div class="patrat"></div>
+        <div class="patrat"></div>
+        <div class="patrat"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>P2</title>
+    <style>
+        .c1 {
+            color: red;
+        }
+        
+        .c2 {
+            color: blue;
+        }
+        
+        .c3 {
+            color: green;
+        }
+        
+        .c4 {
+            color: black;
+        }
+        
+        .c5 {
+            color: yellow;
+        }
+    </style>
+    <script>
+        onload = () => {
+            let k = new Date().getMinutes();
+            let n = 10 > k ? 10 : k;
+            let classes = ["c1", "c2", "c3", "c4", "c5"];
+            for (let i = 0; i < n; ++i) {
+                let p = document.createElement("p");
+                p.innerHTML = "Florin";
+                p.classList.add(classes[Math.floor(Math.random() * classes.length)]);
+                document.body.appendChild(p);
+            }
+        };
+
+        document.addEventListener("click", (e) => {
+            if (e.target.tagName != "P") {
+                alert(e.clientY);
+            } else {
+                let className = e.target.classList;
+                let ps = document.getElementsByTagName("p");
+                for (let i = 0; i < ps.length; ++i) {
+                    if (ps[i].classList[0] == className) {
+                        ps[i].remove();
+                    }
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

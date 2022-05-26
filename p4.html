@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>P4</title>
+</head>
+
+<body>
+    <form action="/p4" method="post">
+        <input type="text" name="name" id="formName" />
+        <input type="submit" value="Submit" id="formSubmit" />
+    </form>
+
+    <div id="dateom"></div>
+
+    <script>
+        formSubmit.onclick = (e) => {
+            e.preventDefault();
+
+            let name = document.getElementById("formName").value;
+
+            fetch('p4', {
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name
+                })
+            }).then(function(response) {
+                return response.text();
+            }).then(function(res) {
+                res = JSON.parse(res);
+                let dom = document.getElementById("dateom");
+
+                if (typeof res.eroare !== 'undefined') {
+                    dom.innerHTML = res.eroare;
+                } else {
+                    let ih = res.sex == 'f' ? 'fata, ' : 'baiat, ';
+                    ih += res.varsta >= 18 ? 'nu este minor' : 'este minor';
+
+                    dom.innerHTML = ih;
+                }
+            });
+
+        }
+    </script>
+</body>
+
+</html>
